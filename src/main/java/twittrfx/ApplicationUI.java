@@ -2,44 +2,34 @@ package twittrfx;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import twittrfx.views.ViewMixin;
 
 // change layout here
-public class ApplicationUI extends StackPane {
+public class ApplicationUI extends VBox implements ViewMixin {
 
     private final PresentationModel model;
+    // private Button button;
 
-    private Button button;
 
     public ApplicationUI(PresentationModel model) {
         this.model = model;
-        initializeSelf();
-        initializeControls();
-        layoutControls();
-        setupEventHandlers();
-        setupValueChangedListeners();
-        setupBindings();
+        init();
     }
 
-    private void initializeSelf() {
+    @Override
+    public void initializeSelf() {
         String stylesheet = getClass().getResource("style.css").toExternalForm();
         getStylesheets().add(stylesheet);
     }
 
-    private void initializeControls() {
-        button = new Button();
+    @Override
+    public void initializeControls() {
+        // button = new Button();
     }
 
-    private void layoutControls() {
-        getChildren().addAll(button);
-    }
-
-    private void setupEventHandlers() {
-    }
-
-    private void setupValueChangedListeners() {
-    }
-
-    private void setupBindings() {
-        button.textProperty().bind(model.greetingProperty());
+    @Override
+    public void layoutControls() {
+        // getChildren().addAll(button);
     }
 }
