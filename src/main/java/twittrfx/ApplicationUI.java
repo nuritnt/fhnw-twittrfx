@@ -10,7 +10,8 @@ public class ApplicationUI extends VBox implements ViewMixin {
 
     private final PresentationModel model;
     // private Button button;
-
+    // create toolbox
+    // initialize toolbox here
 
     public ApplicationUI(PresentationModel model) {
         this.model = model;
@@ -26,10 +27,12 @@ public class ApplicationUI extends VBox implements ViewMixin {
     @Override
     public void initializeControls() {
         // button = new Button();
+        // add toolbox to layout here
     }
 
     @Override
     public void layoutControls() {
         // getChildren().addAll(button);
+        // add toolbox to layout here
     }
 }
