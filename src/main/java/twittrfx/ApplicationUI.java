@@ -26,12 +26,12 @@ public class ApplicationUI extends VBox implements ViewMixin {
     @Override
     public void initializeControls() {
         // add toolbox to layout here
-        toolbar = new Toolbar(model);
+        //toolbar = new Toolbar(model);
     }
 
     @Override
     public void layoutControls() {
         // add toolbox to layout here
-        getChildren().add(toolbar);
+        // getChildren().add(toolbar);
     }
 }
