@@ -3,18 +3,14 @@ package twittrfx;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import twittrfx.views.Toolbox;
+import twittrfx.views.Toolbar;
 import twittrfx.views.ViewMixin;
 
 // change layout here
 public class ApplicationUI extends VBox implements ViewMixin {
 
     private final PresentationModel model;
-    private final Toolbox toolbox;
-    // private Button button;
-    // create toolbox
-    // initialize toolbox here
-
+    private Toolbar toolbar;
 
     public ApplicationUI(PresentationModel model) {
         this.model = model;
@@ -29,14 +25,13 @@ public class ApplicationUI extends VBox implements ViewMixin {
 
     @Override
     public void initializeControls() {
-        // button = new Button();
         // add toolbox to layout here
+        toolbar = new Toolbar(model);
     }
 
     @Override
     public void layoutControls() {
-        // getChildren().addAll(button);
         // add toolbox to layout here
-        getChildren().add(toolbox);
+        getChildren().add(toolbar);
     }
 }
