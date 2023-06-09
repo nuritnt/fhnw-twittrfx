@@ -1,9 +1,11 @@
-package twittrfx.bird;
+package twittrfx.models;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class BirdPM {
   private final StringProperty name = new SimpleStringProperty();
@@ -21,6 +23,7 @@ public class BirdPM {
   private final StringProperty independentAge = new SimpleStringProperty();
   private final StringProperty populationTrend = new SimpleStringProperty();
   private final StringProperty incubationPeriod = new SimpleStringProperty();
+  private final ObservableList<BirdPM> birds = FXCollections.observableArrayList();
 
   public BirdPM(String[] line) {
     setName(line[0]);
@@ -220,4 +223,12 @@ public class BirdPM {
   public void setPopulationTrend(String populationTrend) {
     this.populationTrend.set(populationTrend);
   }
+
+  public ObservableList<BirdPM> getBirds() {
+    return birds;
+  }
+
+public Object infoAsLine(String delimiter) {
+    return null;
+}
 }
