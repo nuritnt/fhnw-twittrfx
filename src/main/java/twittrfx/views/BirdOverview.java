@@ -1,9 +1,7 @@
 package twittrfx.views;
 
-import javafx.geometry.Insets;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import twittrfx.models.BirdPM;
 
