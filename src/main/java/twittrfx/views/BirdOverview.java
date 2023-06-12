@@ -3,19 +3,20 @@ package twittrfx.views;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
+import twittrfx.PresentationModel;
 import twittrfx.models.BirdPM;
 
 public class BirdOverview extends VBox implements ViewMixin {
-    private final BirdPM model;
+    private final PresentationModel model;
     private TableView<BirdPM> birdTable;
 
-    public BirdOverview(BirdPM model) {
+    public BirdOverview(PresentationModel model) {
         this.model = model;
         init();
     }
 
     private TableView<BirdPM> initializeBirdTable() {
-        TableView<BirdPM> birdTable = new TableView<>(model.getBirds());
+        TableView<BirdPM> birdTable = new TableView<>(new PresentationModel().getBirds());
         TableColumn<BirdPM, String> nameCol = new TableColumn<>("Name");
         nameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 

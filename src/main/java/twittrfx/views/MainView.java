@@ -1,14 +1,14 @@
 package twittrfx.views;
 
 import javafx.scene.control.SplitPane;
-import twittrfx.models.BirdPM;
+import twittrfx.PresentationModel;
 
 public class MainView extends SplitPane implements ViewMixin {
-    private final BirdPM model;
+    private final PresentationModel model;
     private BirdOverview birdOverview;
     private BirdProfile birdProfile;
 
-    public MainView(BirdPM model) {
+    public MainView(PresentationModel model) {
         this.model = model;
         init();
     }

@@ -5,10 +5,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import twittrfx.models.BirdPM;
+import twittrfx.PresentationModel;
 
 public class BirdEditor extends GridPane implements ViewMixin{
-    private final BirdPM model;
+    private final PresentationModel model;
 
     private Label name;
     private TextField nameField;
@@ -59,7 +59,7 @@ public class BirdEditor extends GridPane implements ViewMixin{
     private TextField imageField;
 
 
-    public BirdEditor(BirdPM model) {
+    public BirdEditor(PresentationModel model) {
         this.model = model;
         init();
     }

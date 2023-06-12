@@ -3,7 +3,6 @@ package twittrfx;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import twittrfx.models.BirdPM;
 import twittrfx.views.MainView;
 import twittrfx.views.Toolbar;
 import twittrfx.views.ViewMixin;
@@ -28,8 +27,8 @@ public class ApplicationUI extends VBox implements ViewMixin {
     @Override
     public void initializeControls() {
         // add toolbox to layout here
-        //toolbar = new Toolbar(model);
-        mainView = new MainView(new BirdPM(model));
+        // toolbar = new Toolbar(model);
+        mainView = new MainView(model);
     }
 
     @Override

@@ -1,14 +1,14 @@
 package twittrfx.views;
 
 import javafx.scene.layout.VBox;
-import twittrfx.models.BirdPM;
+import twittrfx.PresentationModel;
 
 public class BirdProfile extends VBox implements ViewMixin {
-    private final BirdPM model;
+    private final PresentationModel model;
     private BirdBio birdBio;
     private BirdEditor birdEditor;
     
-    public BirdProfile(BirdPM model) {
+    public BirdProfile(PresentationModel model) {
         this.model = model;
         init();
     }

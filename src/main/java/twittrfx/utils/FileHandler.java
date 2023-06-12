@@ -10,25 +10,23 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
+import twittrfx.PresentationModel;
 import twittrfx.models.BirdPM;
 
 public class FileHandler {
-    private final ObservableList<BirdPM> allBirds = FXCollections.observableArrayList();
 
-    private static final String FILE_NAME = "birds_of_switzerland.tsv";
+    private final String FILE_NAME = "birds_of_switzerland.tsv";
     private static final String DELIMITER = "\t";
 
-    public FileHandler() {
-        allBirds.addAll(readFromFile());
-    }
-
-    private List<BirdPM> readFromFile() {
+    public List<BirdPM> readFromFile() {
         try (BufferedReader reader = getReader(FILE_NAME)) {
             return reader.lines()
                 .skip(1) // erste Zeile ist die Headerzeile; ueberspringen
-                .map(line -> new BirdPM(line.split(DELIMITER, 22))) // aus jeder Zeile ein Objekt machen
+                .map(line -> {
+                    System.out.println("Line: " + line);
+                    return new BirdPM(line.split(DELIMITER, 22));
+                }) // aus jeder Zeile ein Objekt machen
                 .collect(Collectors.toList()); // alles aufsammeln
         } catch (IOException e) {
             throw new IllegalStateException("failed");
@@ -41,7 +39,7 @@ public class FileHandler {
                 // TODO change this to the correct header line
                 "Gemeinde-Nr.\tBFS Gemeinden\tKanton\tFDP\tCVP\tSPS\tSVP\tLPS\tEVP\tCSP\tGLP\tPdA Sol.\tFGA\tGPS\tSD\tEDU\tFPS\tLega\tÜbrige\tWahlberechtigte\tWählende");
             writer.newLine();
-            allBirds.stream()
+            PresentationModel.birds.stream()
                 .map(resultat -> resultat.infoAsLine(DELIMITER))
                 .forEach(line -> {
                     try {
@@ -57,9 +55,9 @@ public class FileHandler {
     }
 
     private BufferedReader getReader(String fileName) {
-        InputStream inputStream = getClass().getResourceAsStream(fileName);  // damit kann man vom File lesen
-        InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8); // lesen von Text-File
-        return new BufferedReader(reader);  // damit man zeilenweise lesen kann
+        InputStream inputStream = getClass().getResourceAsStream(fileName);
+        InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+        return new BufferedReader(reader);
     }
 
     private BufferedWriter getWriter(String fileName) {

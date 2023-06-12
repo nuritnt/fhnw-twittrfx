@@ -1,11 +1,11 @@
 package twittrfx.models;
 
+import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import twittrfx.PresentationModel;
 
 public class BirdPM {
@@ -15,7 +15,7 @@ public class BirdPM {
   private final StringProperty image = new SimpleStringProperty();
   private final StringProperty shortDescription = new SimpleStringProperty();
   private final StringProperty populationSize = new SimpleStringProperty();
-  private final IntegerProperty maximumLifeSpanInYears = new SimpleIntegerProperty();
+  private final FloatProperty maximumLifeSpanInYears = new SimpleFloatProperty();
   private final IntegerProperty topSpeedInKmh = new SimpleIntegerProperty();
   private final StringProperty weight = new SimpleStringProperty();
   private final StringProperty length = new SimpleStringProperty();
@@ -26,8 +26,7 @@ public class BirdPM {
   private final StringProperty independentAge = new SimpleStringProperty();
   private final StringProperty populationTrend = new SimpleStringProperty();
   private final StringProperty incubationPeriod = new SimpleStringProperty();
-  private final ObservableList<BirdPM> birds = FXCollections.observableArrayList();
-
+  
   public BirdPM(PresentationModel model) {
     this.model = model;
   }
@@ -38,7 +37,7 @@ public class BirdPM {
     setImage(line[1]);
     setShortDescription(line[2]);
     setPopulationSize(line[3]);
-    setMaximumLifeSpanInYears(Integer.parseInt(line[4]));
+    setMaximumLifeSpanInYears(Float.parseFloat(line[4]));
     setTopSpeedInKmh(Integer.parseInt(line[5]));
     setWeight(line[6]);
     setLength(line[7]);
@@ -111,15 +110,15 @@ public class BirdPM {
     this.populationSize.set(populationSize);
   }
 
-  public IntegerProperty maximumLifeSpanInYearsProperty() {
+  public FloatProperty maximumLifeSpanInYearsProperty() {
     return maximumLifeSpanInYears;
   }
 
-  public Integer getMaximumLifeSpanInYears() {
+  public Float getMaximumLifeSpanInYears() {
     return maximumLifeSpanInYears.get();
   }
 
-  public void setMaximumLifeSpanInYears(Integer maximumLifeSpanInYears) {
+  public void setMaximumLifeSpanInYears(Float maximumLifeSpanInYears) {
     this.maximumLifeSpanInYears.set(maximumLifeSpanInYears);
   }
 
@@ -233,9 +232,5 @@ public class BirdPM {
 
   public Object infoAsLine(String delimiter) {
       return null;
-  }
-
-  public ObservableList<BirdPM> getBirds() {
-    return birds;
   }
 }

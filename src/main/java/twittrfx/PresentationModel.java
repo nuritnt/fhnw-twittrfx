@@ -2,12 +2,21 @@ package twittrfx;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import twittrfx.models.BirdPM;
+import twittrfx.utils.FileHandler;
 
 public class PresentationModel {
 
   private final StringProperty applicationTitle = new SimpleStringProperty("JavaFX App");
-
   private final StringProperty greeting = new SimpleStringProperty("Hello World!");
+
+  public final static ObservableList<BirdPM> birds = FXCollections.observableArrayList();
+
+  public PresentationModel() {
+    birds.addAll(new FileHandler().readFromFile());
+  }
 
   public String getApplicationTitle() {
     return applicationTitle.get();
@@ -31,5 +40,9 @@ public class PresentationModel {
 
   public void setGreeting(String greeting) {
     this.greeting.set(greeting);
+  }
+
+  public ObservableList<BirdPM> getBirds() {
+    return birds;
   }
 }

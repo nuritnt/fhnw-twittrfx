@@ -2,14 +2,14 @@ package twittrfx.views;
 
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import twittrfx.models.BirdPM;
+import twittrfx.PresentationModel;
 
 public class BirdBio extends VBox implements ViewMixin {
-    private final BirdPM model;
+    private final PresentationModel model;
     private Text name;
     private Text distribution;
 
-    public BirdBio(BirdPM model) {
+    public BirdBio(PresentationModel model) {
         this.model = model;
         init();
     }
