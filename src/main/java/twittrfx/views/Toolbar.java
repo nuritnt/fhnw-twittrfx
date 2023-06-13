@@ -7,9 +7,7 @@ import twittrfx.PresentationModel;
 public class Toolbar extends HBox implements ViewMixin {
     private Button saveButton;
     private Button addButton;
-    private Button deteletButton;
-    private Button undoBUtton;
-    private Button redoButton;
+    private Button deleteButton;
     private Button englishButton;
     private Button germanButton;
 

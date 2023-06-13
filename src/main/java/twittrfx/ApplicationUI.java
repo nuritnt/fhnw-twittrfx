@@ -1,7 +1,6 @@
 package twittrfx;
 
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import twittrfx.views.MainView;
 import twittrfx.views.Toolbar;
@@ -29,6 +28,7 @@ public class ApplicationUI extends VBox implements ViewMixin {
         // add toolbox to layout here
         // toolbar = new Toolbar(model);
         mainView = new MainView(model);
+        setVgrow(mainView, Priority.ALWAYS);
     }
 
     @Override
