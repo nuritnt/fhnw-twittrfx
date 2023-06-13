@@ -8,6 +8,7 @@ import twittrfx.models.BirdPM;
 
 public class BirdOverview extends VBox implements ViewMixin {
     private final PresentationModel model;
+    private BirdHeader birdHeader;
     private TableView<BirdPM> birdTable;
 
     public BirdOverview(PresentationModel model) {
@@ -16,7 +17,7 @@ public class BirdOverview extends VBox implements ViewMixin {
     }
 
     private TableView<BirdPM> initializeBirdTable() {
-        TableView<BirdPM> birdTable = new TableView<>(new PresentationModel().getBirds());
+        TableView<BirdPM> birdTable = new TableView<>(model.getBirds());
         TableColumn<BirdPM, String> nameCol = new TableColumn<>("Name");
         nameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 
@@ -35,13 +36,14 @@ public class BirdOverview extends VBox implements ViewMixin {
 
     @Override
     public void initializeControls() {
+        birdHeader = new BirdHeader(model);
         birdTable = initializeBirdTable();
 
     }
 
     @Override
     public void layoutControls() {
-        getChildren().add(birdTable);
+        getChildren().addAll(birdHeader, birdTable);
     }
     
 }
