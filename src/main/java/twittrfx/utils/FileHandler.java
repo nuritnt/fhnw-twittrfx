@@ -23,10 +23,7 @@ public class FileHandler {
         try (BufferedReader reader = getReader(FILE_NAME)) {
             return reader.lines()
                 .skip(1) // erste Zeile ist die Headerzeile; ueberspringen
-                .map(line -> {
-                    System.out.println("Line: " + line);
-                    return new BirdPM(line.split(DELIMITER, 22));
-                }) // aus jeder Zeile ein Objekt machen
+                .map(line -> new BirdPM(line.split(DELIMITER, 22))) // aus jeder Zeile ein Objekt machen
                 .collect(Collectors.toList()); // alles aufsammeln
         } catch (IOException e) {
             throw new IllegalStateException("failed");
