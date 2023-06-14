@@ -5,11 +5,11 @@ import javafx.scene.layout.HBox;
 import twittrfx.PresentationModel;
 
 public class Toolbar extends HBox implements ViewMixin {
-    private Button saveButton;
-    private Button addButton;
-    private Button deleteButton;
-    private Button englishButton;
-    private Button germanButton;
+    private Button saveBtn;
+    private Button addBtn;
+    private Button deleteBtn;
+    private Button englishBtn;
+    private Button germanBtn;
 
     private PresentationModel model;
 
