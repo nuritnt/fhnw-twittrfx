@@ -1,5 +1,6 @@
 package twittrfx.views;
 
+import javafx.collections.ListChangeListener;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
@@ -19,13 +20,13 @@ public class BirdOverview extends VBox implements ViewMixin {
     private TableView<BirdPM> initializeBirdTable() {
         TableView<BirdPM> birdTable = new TableView<>(model.getBirds());
         TableColumn<BirdPM, String> nameCol = new TableColumn<>("Name");
-        nameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        nameCol.setCellValueFactory(cell -> cell.getValue().nameProperty());
 
         TableColumn<BirdPM, String> popTrend = new TableColumn<>("Population Trend");
-        popTrend.setCellValueFactory(cellData -> cellData.getValue().populationTrendProperty());
+        popTrend.setCellValueFactory(cell -> cell.getValue().populationTrendProperty());
 
         TableColumn<BirdPM, String> popStatus = new TableColumn<>("Population Status");
-        popStatus.setCellValueFactory(cellData -> cellData.getValue().populationSizeProperty());
+        popStatus.setCellValueFactory(cell -> cell.getValue().populationSizeProperty());
 
         birdTable.getColumns().add(nameCol);
         birdTable.getColumns().add(popTrend);
@@ -44,6 +45,23 @@ public class BirdOverview extends VBox implements ViewMixin {
     @Override
     public void layoutControls() {
         getChildren().addAll(birdHeader, birdTable);
+    }
+
+    // Thx GPT.
+    @Override
+    public void setupEventHandlers() {
+    birdTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+      model.setSelectedBird(newValue);
+        });
+    }
+
+    @Override
+    public void setupValueChangedListeners() {
+        model.getBirds().addListener((ListChangeListener<BirdPM>) cell -> {
+        while (cell.next()) {
+            birdTable.scrollTo(cell.getFrom());
+        }
+    });
     }
     
 }

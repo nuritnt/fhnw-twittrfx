@@ -1,5 +1,7 @@
 package twittrfx;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -13,7 +15,8 @@ public class PresentationModel {
   private final StringProperty greeting = new SimpleStringProperty("Hello World!");
 
   public final static ObservableList<BirdPM> birds = FXCollections.observableArrayList();
-  
+  private ObjectProperty<BirdPM> selectedBird = new SimpleObjectProperty<>();
+
   public PresentationModel() {
     birds.addAll(new FileHandler().readFromFile());
   }
@@ -56,5 +59,17 @@ public class PresentationModel {
 
   public Integer amountOfBirdSpecies() {
     return getBirds().size();
+  }
+  
+  public BirdPM getSelectedBird() {
+    return selectedBird.getValue();
+  }
+  
+  public void setSelectedBird(BirdPM selectedBird) {
+    this.selectedBird.setValue(selectedBird);
+  }
+  
+  public ObjectProperty<BirdPM> selectedBirdProperty() {
+      return selectedBird;
   }
 }

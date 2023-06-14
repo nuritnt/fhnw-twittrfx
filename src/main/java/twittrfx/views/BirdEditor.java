@@ -5,7 +5,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.util.converter.NumberStringConverter;
 import twittrfx.PresentationModel;
+import twittrfx.models.BirdPM;
 
 public class BirdEditor extends GridPane implements ViewMixin{
     private final PresentationModel model;
@@ -140,4 +142,87 @@ public class BirdEditor extends GridPane implements ViewMixin{
         addRow(15, image, imageField);
     }
 
+    @Override
+    public void setupBindings() {
+         model.selectedBirdProperty().addListener((observable, oldValue, newValue) -> {
+            // When the selected bird changes, unbind the properties from the old bird (if exists)
+            if (oldValue != null) {
+                unbindProperties(oldValue);
+            }
+            
+            // And bind them to the new bird (if exists)
+            if (newValue != null) {
+                bindProperties(newValue);
+            }
+        });
+    }
+
+    private void bindProperties(BirdPM bird) {
+        nameField.textProperty().bindBidirectional(bird.nameProperty());
+        shortDescriptionField.textProperty().bindBidirectional(bird.shortDescriptionProperty());
+        populationSizeField.textProperty().bindBidirectional(bird.populationSizeProperty());
+        topSpeedField.textProperty().bindBidirectional(bird.topSpeedInKmhProperty(), new NumberStringConverter());
+        maximumAgeField.textProperty().bindBidirectional(bird.maximumLifeSpanInYearsProperty(), new NumberStringConverter());
+        lengthField.textProperty().bindBidirectional(bird.lengthProperty());
+        weightField.textProperty().bindBidirectional(bird.weightProperty());
+        wingspanField.textProperty().bindBidirectional(bird.wingspanProperty());
+        continentsField.textProperty().bindBidirectional(bird.continentsProperty());
+        incubationPeriodField.textProperty().bindBidirectional(bird.incubationPeriodProperty());
+        dietField.textProperty().bindBidirectional(bird.dietProperty());
+        seasonalBehaviourField.textProperty().bindBidirectional(bird.seasonalBehaviourProperty());
+        independentAgeField.textProperty().bindBidirectional(bird.independentAgeProperty());
+        populationTrendField.textProperty().bindBidirectional(bird.populationTrendProperty());
+        populationStatusField.textProperty().bindBidirectional(bird.populationSizeProperty());
+        imageField.textProperty().bindBidirectional(bird.imageProperty());
+    }
+
+    private void unbindProperties(BirdPM bird) {
+        nameField.textProperty().unbindBidirectional(bird.nameProperty());
+        shortDescriptionField.textProperty().unbindBidirectional(bird.shortDescriptionProperty());
+        populationSizeField.textProperty().unbindBidirectional(bird.populationSizeProperty());
+        topSpeedField.textProperty().unbindBidirectional(bird.topSpeedInKmhProperty());
+        maximumAgeField.textProperty().unbindBidirectional(bird.maximumLifeSpanInYearsProperty());
+        lengthField.textProperty().unbindBidirectional(bird.lengthProperty());
+        weightField.textProperty().unbindBidirectional(bird.weightProperty());
+        wingspanField.textProperty().unbindBidirectional(bird.wingspanProperty());
+        continentsField.textProperty().unbindBidirectional(bird.continentsProperty());
+        incubationPeriodField.textProperty().unbindBidirectional(bird.incubationPeriodProperty());
+        dietField.textProperty().unbindBidirectional(bird.dietProperty());
+        seasonalBehaviourField.textProperty().unbindBidirectional(bird.seasonalBehaviourProperty());
+        independentAgeField.textProperty().unbindBidirectional(bird.independentAgeProperty());
+        populationTrendField.textProperty().unbindBidirectional(bird.populationTrendProperty());
+        populationStatusField.textProperty().unbindBidirectional(bird.populationSizeProperty());
+        imageField.textProperty().unbindBidirectional(bird.imageProperty());
+    }
+
+    @Override
+    public void setupValueChangedListeners() {
+        model.selectedBirdProperty().addListener((observable, oldValue, newValue) -> {
+            if (oldValue != null) {
+                unbind(oldValue);
+            }
+            if (newValue != null) {
+                setupBindings();
+            }
+        });
+    }
+
+    private void unbind(BirdPM bird) {
+        nameField.textProperty().unbindBidirectional(bird.nameProperty());
+        shortDescriptionField.textProperty().unbindBidirectional(bird.shortDescriptionProperty());
+        populationSizeField.textProperty().unbindBidirectional(bird.populationSizeProperty());
+        topSpeedField.textProperty().unbindBidirectional(bird.topSpeedInKmhProperty());
+        maximumAgeField.textProperty().unbindBidirectional(bird.maximumLifeSpanInYearsProperty());
+        lengthField.textProperty().unbindBidirectional(bird.lengthProperty());
+        weightField.textProperty().unbindBidirectional(bird.weightProperty());
+        wingspanField.textProperty().unbindBidirectional(bird.wingspanProperty());
+        continentsField.textProperty().unbindBidirectional(bird.continentsProperty());
+        incubationPeriodField.textProperty().unbindBidirectional(bird.incubationPeriodProperty());
+        dietField.textProperty().unbindBidirectional(bird.dietProperty());
+        seasonalBehaviourField.textProperty().unbindBidirectional(bird.seasonalBehaviourProperty());
+        independentAgeField.textProperty().unbindBidirectional(bird.independentAgeProperty());
+        populationTrendField.textProperty().unbindBidirectional(bird.populationTrendProperty());
+        populationStatusField.textProperty().unbindBidirectional(bird.populationSizeProperty());
+        imageField.textProperty().unbindBidirectional(bird.imageProperty());
+    }
 }

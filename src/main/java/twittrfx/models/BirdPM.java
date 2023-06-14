@@ -22,9 +22,10 @@ public class BirdPM {
   private final StringProperty wingspan = new SimpleStringProperty();
   private final StringProperty continents = new SimpleStringProperty();
   private final StringProperty diet = new SimpleStringProperty();
-  private final StringProperty seasonalBehavior = new SimpleStringProperty();
+  private final StringProperty seasonalBehaviour = new SimpleStringProperty();
   private final StringProperty independentAge = new SimpleStringProperty();
   private final StringProperty populationTrend = new SimpleStringProperty();
+  private final StringProperty populationStatus = new SimpleStringProperty();
   private final StringProperty incubationPeriod = new SimpleStringProperty();
   
   public BirdPM(PresentationModel model) {
@@ -44,9 +45,10 @@ public class BirdPM {
     setWingspan(line[8]);
     setContinents(line[9]);
     setDiet(line[10]);
-    setSeasonalBehavior(line[11]);
+    setSeasonalBehaviour(line[11]);
     setIndependentAge(line[12]);
     setPopulationTrend(line[13]);
+    setPopulationStatus("");
     setIncubationPeriod(line[14]);
   }
 
@@ -194,16 +196,16 @@ public class BirdPM {
     this.diet.set(diet);
   }
 
-  public StringProperty seasonalBehaviorProperty() {
-    return seasonalBehavior;
+  public StringProperty seasonalBehaviourProperty() {
+    return seasonalBehaviour;
   }
 
-  public String getSeasonalBehavior() {
-    return seasonalBehavior.get();
+  public String getSeasonalBehaviour() {
+    return seasonalBehaviour.get();
   }
 
-  public void setSeasonalBehavior(String seasonalBehavior) {
-    this.seasonalBehavior.set(seasonalBehavior);
+  public void setSeasonalBehaviour(String seasonalBehaviour) {
+    this.seasonalBehaviour.set(seasonalBehaviour);
   }
 
   public StringProperty independentAgeProperty() {
@@ -228,6 +230,19 @@ public class BirdPM {
 
   public void setPopulationTrend(String populationTrend) {
     this.populationTrend.set(populationTrend);
+  }
+
+
+  public StringProperty populationStatusProperty() {
+    return populationStatus;
+  }
+
+  public String getPopulationStatus() {
+    return populationStatus.get();
+  }
+
+  public void setPopulationStatus(String populationStatus) {
+    this.populationStatus.set(populationStatus);
   }
 
   public Object infoAsLine(String delimiter) {
