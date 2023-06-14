@@ -13,9 +13,6 @@ public class PresentationModel {
   private final StringProperty greeting = new SimpleStringProperty("Hello World!");
 
   public final static ObservableList<BirdPM> birds = FXCollections.observableArrayList();
-
-  public StringProperty amountOfBirdSpeciesValue = new SimpleStringProperty();
-  public StringProperty highestTopSpeedValue = new SimpleStringProperty();
   
   public PresentationModel() {
     birds.addAll(new FileHandler().readFromFile());
@@ -49,23 +46,15 @@ public class PresentationModel {
     return birds;
   }
 
-  public Integer getAmountOfBirdSpeciesValue() {
-    return getBirds().size();
-  }
-
-  public void setAmountOfBirdSpeciesValue(StringProperty amountOfBirdSpeciesValue) {
-    this.amountOfBirdSpeciesValue = amountOfBirdSpeciesValue;
-  }
-
-  public Integer getHighestTopSpeedValue() {
+  public Integer highestTopSpeed() {
     return getBirds()
       .stream()
-      .mapToInt(BirdPM::getTopSpeedInKmh)
+      .mapToInt(bird -> bird.getTopSpeedInKmh())
       .max()
       .orElse(0);
   }
 
-  public void setHighestTopSpeedValue(StringProperty highestTopSpeedValue) {
-    this.highestTopSpeedValue = highestTopSpeedValue;
+  public Integer amountOfBirdSpecies() {
+    return getBirds().size();
   }
 }
