@@ -33,8 +33,7 @@ public class FileHandler {
     public void save() {
         try (BufferedWriter writer = getWriter(FILE_NAME)) {
             writer.write(
-                // TODO change this to the correct header line
-                "Gemeinde-Nr.\tBFS Gemeinden\tKanton\tFDP\tCVP\tSPS\tSVP\tLPS\tEVP\tCSP\tGLP\tPdA Sol.\tFGA\tGPS\tSD\tEDU\tFPS\tLega\tÜbrige\tWahlberechtigte\tWählende");
+                "name\timage\tshort_description\tpopulation_size\tmaximum_life_span_in_years\ttop_speed_in_kmh\tweight\tlength\twingspan\tcontinents\tdiet\tseasonal_behavior\tindependent_age\tpopulation_trend\tpopulation_status\tincubation_period");
             writer.newLine();
             PresentationModel.birds.stream()
                 .map(resultat -> resultat.infoAsLine(DELIMITER))
