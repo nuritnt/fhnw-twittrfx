@@ -60,16 +60,21 @@ public class Toolbar extends HBox implements ViewMixin {
     }
 
         
-        @Override
-        public void layoutControls() {
-            HBox crudBox = new HBox();
-            crudBox.getChildren().addAll(saveBtn, addBtn, deleteBtn);
-    
-            HBox languageBox = new HBox();
-            languageBox.getChildren().addAll(englishBtn, germanBtn);
+    @Override
+    public void layoutControls() {
+        HBox crudBox = new HBox();
+        crudBox.getChildren().addAll(saveBtn, addBtn, deleteBtn);
 
-            HBox.setHgrow(crudBox, Priority.ALWAYS);
-            getChildren().addAll(crudBox, languageBox);
-        }
+        HBox languageBox = new HBox();
+        languageBox.getChildren().addAll(englishBtn, germanBtn);
+
+        HBox.setHgrow(crudBox, Priority.ALWAYS);
+        getChildren().addAll(crudBox, languageBox);
+    }
+
+    @Override
+    public void setupEventHandlers() {
+        addBtn.setOnAction(event -> model.addBird());
+    }
     
 }

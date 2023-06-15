@@ -72,4 +72,10 @@ public class PresentationModel {
   public ObjectProperty<BirdPM> selectedBirdProperty() {
       return selectedBird;
   }
+
+  public void addBird() {
+    BirdPM newBird = new BirdPM("New 🐓");
+    birds.add(newBird);
+    selectedBird.setValue(newBird);
+  }
 }

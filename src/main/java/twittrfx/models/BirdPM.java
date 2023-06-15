@@ -32,6 +32,26 @@ public class BirdPM {
     this.model = model;
   }
 
+  public BirdPM(String string) {
+    this.model = null;
+    setName(string);
+    setImage("");
+    setShortDescription("");
+    setPopulationSize("");
+    setMaximumLifeSpanInYears(0f);
+    setTopSpeedInKmh(0);
+    setWeight("");
+    setLength("");
+    setWingspan("");
+    setContinents("");
+    setDiet("");
+    setSeasonalBehaviour("");
+    setIndependentAge("");
+    setPopulationTrend("");
+    setPopulationStatus("");
+    setIncubationPeriod("");
+  }
+
   public BirdPM(String[] line) {
     this.model = null;
     setName(line[0]);
@@ -51,6 +71,8 @@ public class BirdPM {
     setPopulationStatus("");
     setIncubationPeriod(line[14]);
   }
+
+
 
   public StringProperty incubationPeriodProperty() {
     return incubationPeriod;
