@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import twittrfx.PresentationModel;
+import twittrfx.models.BirdPM;
 
 public class Toolbar extends HBox implements ViewMixin {
     private Button saveBtn;
@@ -76,5 +77,6 @@ public class Toolbar extends HBox implements ViewMixin {
     public void setupEventHandlers() {
         addBtn.setOnAction(event -> model.addBird());
         deleteBtn.setOnAction(event -> model.deleteBird());
-    }   
+        saveBtn.setOnAction(event -> model.save());
+    }       
 }

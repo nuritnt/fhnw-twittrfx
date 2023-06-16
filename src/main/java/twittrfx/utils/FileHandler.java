@@ -30,7 +30,7 @@ public class FileHandler {
         }
     }
 
-    public void save() {
+    public void save(List<BirdPM> birds) {
         try (BufferedWriter writer = getWriter(FILE_NAME)) {
             writer.write(
                 "name\timage\tshort_description\tpopulation_size\tmaximum_life_span_in_years\ttop_speed_in_kmh\tweight\tlength\twingspan\tcontinents\tdiet\tseasonal_behavior\tindependent_age\tpopulation_trend\tpopulation_status\tincubation_period");

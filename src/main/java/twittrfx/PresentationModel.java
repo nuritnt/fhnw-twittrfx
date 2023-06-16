@@ -83,4 +83,14 @@ public class PresentationModel {
     birds.remove(selectedBird.getValue());
     selectedBird.setValue(null);
   }
+
+  public void save() {
+    FileHandler fileHandler = new FileHandler();
+    try {
+        fileHandler.save(birds);
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw new IllegalStateException("save failed");
+    }
+  }
 }
