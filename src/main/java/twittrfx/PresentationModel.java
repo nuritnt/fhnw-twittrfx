@@ -78,4 +78,9 @@ public class PresentationModel {
     birds.add(newBird);
     selectedBird.setValue(newBird);
   }
+
+  public void deleteBird() {
+    birds.remove(selectedBird.getValue());
+    selectedBird.setValue(null);
+  }
 }
