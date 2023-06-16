@@ -79,4 +79,10 @@ public class Toolbar extends HBox implements ViewMixin {
         deleteBtn.setOnAction(event -> model.deleteBird());
         saveBtn.setOnAction(event -> model.save());
     }       
+
+    @Override
+    public void setupBindings() {
+        deleteBtn.disableProperty().bind(model.selectedBirdProperty().isNull());
+        saveBtn.disableProperty().bind(model.selectedBirdProperty().isNull());
+    }
 }
