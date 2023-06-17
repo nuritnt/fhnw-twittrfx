@@ -68,11 +68,11 @@ public class BirdBio extends HBox implements ViewMixin {
                     if (isValidURL(url)) {
                         return new Image(url);
                     } else {
-                        return new Image("https://placehold.co/600x400?text=Hello+Bird");  // show default image if URL is invalid or empty
+                        return new Image("https://i.redd.it/vnzkxm1653t61.png");  // show default image if URL is invalid or empty
                     }
                 } catch (IllegalArgumentException e) {
                     System.out.println("Invalid URL: " + url);
-                    return new Image("https://placehold.co/600x400?text=Hello+Bird"); 
+                    return new Image("https://i.redd.it/vnzkxm1653t61.png"); 
                 }
             }, imageUrlProperty);
 
