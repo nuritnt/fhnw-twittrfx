@@ -8,8 +8,9 @@
 
 Folgende Zusatzfeatures mit der angegebenen Bewertung wurden umgesetzt:
 
-* Zusatzfeature Beispiel, +0.25
-* ...
+* Präsentation, +0.25
+* JavaFX application icon, ?
+* Disabling delete/save button, ?
 
 === TwittrFX
 
@@ -20,7 +21,7 @@ Implementieren Sie eine Applikation auf Basis JavaFX gemäss der Aufgabenbeschre
 
 === Abgabe
 
-* Mittwoch, 14.06.2023, 23:42 Uhr
+* Mittwoch, 21.06.2023, 23:42 Uhr
 * Die Abgabe erfolgt durch einen "Push" auf den Master-Branch in Ihrem GitHub-Repository.
 * Das Projekt muss aus der IDE heraus startbar sein.
 
