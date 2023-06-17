@@ -59,7 +59,7 @@ public class BirdOverview extends VBox implements ViewMixin {
     public void setupValueChangedListeners() {
         model.getBirds().addListener((ListChangeListener<BirdPM>) cell -> {
         while (cell.next()) {
-            birdTable.scrollTo(cell.getFrom());
+            birdTable.scrollTo(model.getBirds().size() - 1);
         }
     });
     }
