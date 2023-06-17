@@ -33,23 +33,23 @@ public class BirdPM {
   }
 
   public BirdPM(String string) {
-    this.model = null;
-    setName(string);
-    setImage("");
-    setShortDescription("");
-    setPopulationSize("");
-    setMaximumLifeSpanInYears(0f);
-    setTopSpeedInKmh(0);
-    setWeight("");
-    setLength("");
-    setWingspan("");
-    setContinents("");
-    setDiet("");
-    setSeasonalBehaviour("");
-    setIndependentAge("");
-    setPopulationTrend("");
-    setPopulationStatus("");
-    setIncubationPeriod("");
+  this.model = null;
+  setName(string);
+  setImage("");
+  setShortDescription("");
+  setPopulationSize("0");
+  setMaximumLifeSpanInYears(0f);
+  setTopSpeedInKmh(0);
+  setWeight("0");
+  setLength("0"); 
+  setWingspan("0");
+  setContinents("");
+  setDiet("");
+  setSeasonalBehaviour("");
+  setIndependentAge("");
+  setPopulationTrend("");
+  setPopulationStatus("");
+  setIncubationPeriod("");
   }
 
   public BirdPM(String[] line) {
@@ -71,8 +71,6 @@ public class BirdPM {
     setPopulationStatus("");
     setIncubationPeriod(line[14]);
   }
-
-
 
   public StringProperty incubationPeriodProperty() {
     return incubationPeriod;
@@ -268,6 +266,6 @@ public class BirdPM {
   }
 
   public Object infoAsLine(String delimiter) {
-      return null;
+    return getName() + delimiter + getImage() + delimiter + getShortDescription() + delimiter + getPopulationSize() + delimiter + getMaximumLifeSpanInYears() + delimiter + getTopSpeedInKmh() + delimiter + getWeight() + delimiter + getLength() + delimiter + getWingspan() + delimiter + getContinents() + delimiter + getDiet() + delimiter + getSeasonalBehaviour() + delimiter + getIndependentAge() + delimiter + getPopulationTrend() + delimiter + getIncubationPeriod();
   }
 }

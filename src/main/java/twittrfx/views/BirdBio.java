@@ -1,5 +1,9 @@
 package twittrfx.views;
 
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.StringProperty;
@@ -60,16 +64,30 @@ public class BirdBio extends HBox implements ViewMixin {
             StringProperty imageUrlProperty = newValue.imageProperty();
             ObjectBinding<Image> imageBinding = Bindings.createObjectBinding(() -> {
                 String url = imageUrlProperty.get();
-                if (url == null || url.isEmpty()) {
-                    return null;
+                try {
+                    if (isValidURL(url)) {
+                        return new Image(url);
+                    } else {
+                        return new Image("https://placehold.co/600x400?text=Hello+Bird");  // show default image if URL is invalid or empty
+                    }
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Invalid URL: " + url);
+                    return new Image("https://placehold.co/600x400?text=Hello+Bird"); 
                 }
-                return new Image(url);
             }, imageUrlProperty);
-            
+
             birdImg.imageProperty().bind(imageBinding);
-        }
-    });
+            }
+        });
     }
 
-
+    // Helper function to validate URLs, thx GPT.
+    private boolean isValidURL(String url) {
+        try {
+            new URL(url).toURI();
+            return true;
+        } catch (URISyntaxException | MalformedURLException exception) {
+            return false;
+        }
+    }
 }
