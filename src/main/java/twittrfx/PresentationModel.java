@@ -1,10 +1,13 @@
 package twittrfx;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import twittrfx.models.BirdPM;
 import twittrfx.utils.FileHandler;
@@ -14,6 +17,8 @@ public class PresentationModel {
   private final StringProperty applicationTitle = new SimpleStringProperty(Caption.APLLICATION_TITLE.get(Language.EN));
   public final static ObservableList<BirdPM> birds = FXCollections.observableArrayList();
   private ObjectProperty<BirdPM> selectedBird = new SimpleObjectProperty<>();
+  private final IntegerProperty birdCount = new SimpleIntegerProperty();
+  private final IntegerProperty topSpeed = new SimpleIntegerProperty();
 
   public enum Language {
     DE("Deutsch"),
@@ -83,6 +88,17 @@ public class PresentationModel {
 
   public PresentationModel(Language language) {
     birds.addAll(new FileHandler().readFromFile());
+
+        // Initialize properties
+    birdCount.set(birds.size());
+    topSpeed.set(highestTopSpeed());
+
+    // Listen for changes in the bird list
+    birds.addListener((ListChangeListener<BirdPM>) c -> {
+        birdCount.set(birds.size());
+        topSpeed.set(highestTopSpeed());
+    });
+
   }
 
   public String getApplicationTitle() {
@@ -162,5 +178,13 @@ public class PresentationModel {
 
   public String getCaption(Caption caption) {
     return caption.get(currentLanguage.get());
+  }
+
+  public IntegerProperty birdCountProperty() {
+      return birdCount;
+  }
+
+  public IntegerProperty topSpeedProperty() {
+      return topSpeed;
   }
 }
