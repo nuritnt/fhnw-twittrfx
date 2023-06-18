@@ -1,16 +1,22 @@
 package twittrfx;
 
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import twittrfx.views.MainView;
 import twittrfx.views.Toolbar;
 import twittrfx.views.ViewMixin;
 
-// change layout here
-public class ApplicationUI extends VBox implements ViewMixin {
+public class ApplicationUI extends StackPane implements ViewMixin {
     private final PresentationModel model;
     private Toolbar toolbar;
     private MainView mainView;
+    private StackPane loadingScreen;
+    private VBox appContent;
 
     public ApplicationUI(PresentationModel model) {
         this.model = model;
@@ -27,11 +33,30 @@ public class ApplicationUI extends VBox implements ViewMixin {
     public void initializeControls() {
         toolbar = new Toolbar(model);
         mainView = new MainView(model);
-        setVgrow(mainView, Priority.ALWAYS);
+        VBox.setVgrow(mainView, Priority.ALWAYS);
+
+        appContent = new VBox(toolbar, mainView);
+        appContent.setVisible(false);// hide the main content initially
+
+        loadingScreen = new StackPane();
+        ImageView loadingGif = new ImageView(new Image(getClass().getResourceAsStream("loading.gif")));
+        loadingGif.setFitWidth(800);
+        loadingGif.setFitHeight(800);
+        loadingScreen.getChildren().add(loadingGif);
     }
 
     @Override
     public void layoutControls() {
-        getChildren().addAll(toolbar, mainView);
+        getChildren().addAll(appContent, loadingScreen);
+    }
+
+    @Override
+    public void setupEventHandlers() {
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(event -> {
+            loadingScreen.setVisible(false);
+            appContent.setVisible(true); // Show the main content
+        });
+        pause.play();
     }
 }

@@ -16,6 +16,7 @@ public class AppStarter extends Application {
 		Parent rootPanel = new ApplicationUI(pm);
 
 		Scene scene = new Scene(rootPanel);
+		scene.getRoot().setStyle("-fx-background-color: rgb(255,252,246);");
 
 		primaryStage.getIcons().add(new Image("file:icon.png"));
 		primaryStage.titleProperty().bind(pm.applicationTitleProperty());
