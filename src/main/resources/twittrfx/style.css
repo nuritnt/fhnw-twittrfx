@@ -13,6 +13,35 @@
     -fx-background-color: rgb(255, 252, 246);
 }
 
+/* ====== Toolbar ====== */
+.toolbar {
+    -fx-padding: 10px;
+    -fx-min-height: 50px;
+}
+
+.toolbar .button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0 10px;
+}
+
+.toolbar .button:hover {
+    -fx-fill: rgb(128, 0, 0);
+}
+
+.toolbar .button:pressed {
+    -fx-fill: rgb(206, 158, 158);
+}
+
+.toolbar .button:disabled {
+    -fx-opacity: 0.3;
+}
+
+.toolbar .button .graphic {
+    -fx-padding: 5px;
+}
+
 /* ====== MainView ====== */
 .main-view .bird-overview,
 .main-view .bird-profile {

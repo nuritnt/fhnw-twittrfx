@@ -57,6 +57,11 @@ public class Toolbar extends HBox implements ViewMixin {
         germanBtn = new Button("", germanIconView);
     }
 
+    @Override
+    public void initializeSelf() {
+        getStyleClass().add("toolbar");
+    }
+
         
     @Override
     public void layoutControls() {
