@@ -69,51 +69,67 @@ public class BirdEditor extends GridPane implements ViewMixin{
     @Override
     public void initializeControls() {
         name = new Label("Name");
+        name.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.NAME.get(lang)));
         nameField = new TextField();
 
         shortDescription = new Label("Short Description");
+        shortDescription.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.SHORT_DESCRIPTION.get(lang)));
         shortDescriptionField = new TextField();
 
         populationSize = new Label("Population Size");
+        populationSize.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.POPULATION_SIZE.get(lang)));
         populationSizeField = new TextField();
 
         topSpeed = new Label("Top Speed");
+        topSpeed.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.TOP_SPEED.get(lang)));
         topSpeedField = new TextField();
 
         maximumAge = new Label("Maximum Age");
+        maximumAge.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.MAXIMUM_AGE.get(lang)));
         maximumAgeField = new TextField();
 
         length = new Label("Length");
+        length.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.LENGTH.get(lang)));
         lengthField = new TextField();
 
         weight = new Label("Weight");
+        weight.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.WEIGHT.get(lang)));
         weightField = new TextField();
 
         wingspan = new Label("Wingspan");
+        wingspan.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.WINGSPAN.get(lang)));
         wingspanField = new TextField();
 
         continents = new Label("Continents");
+        continents.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.CONTINENTS.get(lang)));
         continentsField = new TextField();
 
         incubationPeriod = new Label("Incubation Period");
+        incubationPeriod.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.INCUBATION_PERIOD.get(lang)));
         incubationPeriodField = new TextField();
 
         diet = new Label("Diet");
+        diet.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.DIET.get(lang)));
         dietField = new TextField();
 
         seasonalBehaviour = new Label("Seasonal Behaviour");
+        seasonalBehaviour.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.SEASONAL_BEHAVIOUR.get(lang)));
         seasonalBehaviourField = new TextField();
 
         independentAge = new Label("Independent Age");
+        independentAge.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.INDEPENDENT_AGE.get(lang)));
         independentAgeField = new TextField();
 
         populationTrend = new Label("Population Trend");
+        populationTrend.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.POPULATION_TREND.get(lang)));
         populationTrendField = new TextField();
 
         populationStatus = new Label("Population Status");
+        populationStatus.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.POPULATION_STATUS.get(lang)));
         populationStatusField = new TextField();
 
         image = new Label("Image");
+        image.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.IMAGE.get(lang)));
         imageField = new TextField();
     }
 
