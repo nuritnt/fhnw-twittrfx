@@ -252,7 +252,6 @@ public class BirdPM {
     this.populationTrend.set(populationTrend);
   }
 
-
   public StringProperty populationStatusProperty() {
     return populationStatus;
   }

@@ -1,6 +1,10 @@
 package twittrfx;
 
+import java.util.List;
+
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -12,10 +16,11 @@ import twittrfx.utils.FileHandler;
 public class PresentationModel {
 
   private final StringProperty applicationTitle = new SimpleStringProperty(Caption.APLLICATION_TITLE.get(Language.EN));
-  private final StringProperty greeting = new SimpleStringProperty("Hello World!");
-
+  private final StringProperty greeting = new SimpleStringProperty("Hello World!");  
   public final static ObservableList<BirdPM> birds = FXCollections.observableArrayList();
   private ObjectProperty<BirdPM> selectedBird = new SimpleObjectProperty<>();
+
+  private BooleanProperty creatingNewBird = new SimpleBooleanProperty(false);
 
   public enum Language {
     DE("Deutsch"),
@@ -147,6 +152,7 @@ public class PresentationModel {
     BirdPM newBird = new BirdPM("New 🐓");
     birds.add(newBird);
     selectedBird.setValue(newBird);
+    setCreatingNewBird(true);
   }
 
   public void deleteBird() {
@@ -180,5 +186,17 @@ public class PresentationModel {
 
   public String getCaption(Caption caption) {
     return caption.get(currentLanguage.get());
+  }
+
+  public boolean isCreatingNewBird() {
+      return creatingNewBird.get();
+  }
+
+  public void setCreatingNewBird(boolean creatingNewBird) {
+      this.creatingNewBird.set(creatingNewBird);
+  }
+
+  public BooleanProperty creatingNewBirdProperty() {
+    return creatingNewBird;
   }
 }
