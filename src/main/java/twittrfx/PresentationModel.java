@@ -83,10 +83,6 @@ public class PresentationModel {
 
   public PresentationModel(Language language) {
     birds.addAll(new FileHandler().readFromFile());
-    
-    if (!birds.isEmpty()) {
-        selectedBird.setValue(birds.get(0));
-    }
   }
 
   public String getApplicationTitle() {
