@@ -134,6 +134,11 @@ public class BirdEditor extends GridPane implements ViewMixin{
     }
 
     @Override
+    public void initializeSelf() {
+        getStyleClass().add("bird-editor");
+    }
+
+    @Override
     public void layoutControls() {
         ColumnConstraints grow = new ColumnConstraints();
         grow.setHgrow(Priority.ALWAYS);

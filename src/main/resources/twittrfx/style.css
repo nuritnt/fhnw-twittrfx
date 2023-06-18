@@ -110,3 +110,19 @@
     -fx-border-style: solid;
     -fx-border-radius: 5px;
 }
+
+/* ====== BirdEditor ====== */
+.bird-editor {
+    -fx-padding: 10px 0;
+}
+
+.bird-editor .label {
+    -fx-padding: 0 30px 0 0;
+}
+
+.bird-editor .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent rgb(128, 0, 0);
+    -fx-border-style: none none solid;
+    -fx-border-width: 0px 0px 1px 0px;
+}
