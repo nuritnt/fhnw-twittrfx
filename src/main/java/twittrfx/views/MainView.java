@@ -28,5 +28,4 @@ public class MainView extends SplitPane implements ViewMixin {
         birdOverview.setMinWidth(500);
         birdProfile.setMinWidth(400);
     }
-    
 }

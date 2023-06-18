@@ -1,15 +1,22 @@
 .root {
     -fx-padding:     10;
-    -fx-pref-height: 300;
-    -fx-pref-width:  400;
     -fx-font-family: 'Nunito';
     -fx-font-size: 16px;
     -fx-background-color: rgb(255, 252, 246);
+    -fx-text-fill: rgb(82, 78, 78);
 }
 
 /* sett all backgrounds here */
-.split-pane {
+.split-pane,
+.bird-overview,
+.table-view {
     -fx-background-color: rgb(255, 252, 246);
+}
+
+/* ====== MainView ====== */
+.main-view .bird-overview,
+.main-view .bird-profile {
+    -fx-padding: 20px;
 }
 
 .split-pane {
@@ -23,6 +30,46 @@
 .split-pane-divider {
     -fx-background-color: rgb(219, 201, 165);
     -fx-border-radius: 5px;
-    -fx-divider-width: 5px;
 
+}
+
+/* ====== BirdOverview ====== */
+.table-view {
+    -fx-background-color: rgb(255, 252, 246);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: rgb(219, 201, 165);
+}
+
+.table-view .column-header .label {
+    -fx-alignment: center-left;
+}
+
+/* Customized scrollbar styling achieved by lots of googling.. */
+.table-view .scroll-bar:vertical {
+    -fx-background-color: #F0F0F0;
+}
+
+.table-view .scroll-bar:vertical .increment-button,
+.table-view .scroll-bar:vertical .decrement-button {
+    -fx-background-color: #D3D3D3;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #808080;
+}
+
+/* Customize the horizontal scroll bar */
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: #F0F0F0;
+}
+
+.table-view .scroll-bar:horizontal .increment-button,
+.table-view .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: #D3D3D3;
+}
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #808080;
 }
