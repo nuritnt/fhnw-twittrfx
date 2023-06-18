@@ -30,6 +30,17 @@ Implementieren Sie eine Applikation auf Basis JavaFX gemäss der Aufgabenbeschre
 * Die Abgabe erfolgt durch einen "Push" auf den Master-Branch in Ihrem GitHub-Repository.
 * Das Projekt muss aus der IDE heraus startbar sein.
 
+=== Screenshots der implementierten Lösung
+### Ladescreen beim Starten der Applikation
+![Screenshot 2023-06-18 at 22 59 56](https://github.com/FHNW-FS23-oopI2/twittrfx-nuritnt/assets/11731325/420d22af-2e96-4aff-b1d6-6c8b55ccf7f0)
+
+### Vorschau des selektierten Vogels
+![Screenshot 2023-06-18 at 22 59 48](https://github.com/FHNW-FS23-oopI2/twittrfx-nuritnt/assets/11731325/9ec0e545-fbcf-48e7-9a75-826c3a957501)
+
+### Neuen Vogel anlegen mit default Foto
+![Screenshot 2023-06-18 at 22 59 41](https://github.com/FHNW-FS23-oopI2/twittrfx-nuritnt/assets/11731325/40c3db62-d680-483f-9d1d-bd9dcdaf2fab)
+
+
 === Bitte beachten Sie:
 
 * Wie in der Aufgabenbeschreibung bereits festgelegt müssen für eine 4.0 folgende Basis-Features implementiert sein:
