@@ -22,7 +22,7 @@ public class BirdPM {
   private final StringProperty wingspan = new SimpleStringProperty();
   private final StringProperty continents = new SimpleStringProperty();
   private final StringProperty diet = new SimpleStringProperty();
-  private final StringProperty seasonalBehaviour = new SimpleStringProperty();
+  private final StringProperty seasonalBehavior = new SimpleStringProperty();
   private final StringProperty independentAge = new SimpleStringProperty();
   private final StringProperty populationTrend = new SimpleStringProperty();
   private final StringProperty populationStatus = new SimpleStringProperty();
@@ -45,7 +45,7 @@ public class BirdPM {
   setWingspan("0");
   setContinents("");
   setDiet("");
-  setSeasonalBehaviour("");
+  setSeasonalBehavior("");
   setIndependentAge("");
   setPopulationTrend("");
   setPopulationStatus("");
@@ -65,7 +65,7 @@ public class BirdPM {
     setWingspan(line[8]);
     setContinents(line[9]);
     setDiet(line[10]);
-    setSeasonalBehaviour(line[11]);
+    setSeasonalBehavior(line[11]);
     setIndependentAge(line[12]);
     setPopulationTrend(line[13]);
     setPopulationStatus("");
@@ -216,16 +216,16 @@ public class BirdPM {
     this.diet.set(diet);
   }
 
-  public StringProperty seasonalBehaviourProperty() {
-    return seasonalBehaviour;
+  public StringProperty seasonalBehaviorProperty() {
+    return seasonalBehavior;
   }
 
-  public String getSeasonalBehaviour() {
-    return seasonalBehaviour.get();
+  public String getSeasonalBehavior() {
+    return seasonalBehavior.get();
   }
 
-  public void setSeasonalBehaviour(String seasonalBehaviour) {
-    this.seasonalBehaviour.set(seasonalBehaviour);
+  public void setSeasonalBehavior(String seasonalBehavior) {
+    this.seasonalBehavior.set(seasonalBehavior);
   }
 
   public StringProperty independentAgeProperty() {
@@ -266,6 +266,6 @@ public class BirdPM {
   }
 
   public Object infoAsLine(String delimiter) {
-    return getName() + delimiter + getImage() + delimiter + getShortDescription() + delimiter + getPopulationSize() + delimiter + getMaximumLifeSpanInYears() + delimiter + getTopSpeedInKmh() + delimiter + getWeight() + delimiter + getLength() + delimiter + getWingspan() + delimiter + getContinents() + delimiter + getDiet() + delimiter + getSeasonalBehaviour() + delimiter + getIndependentAge() + delimiter + getPopulationTrend() + delimiter + getIncubationPeriod();
+    return getName() + delimiter + getImage() + delimiter + getShortDescription() + delimiter + getPopulationSize() + delimiter + getMaximumLifeSpanInYears() + delimiter + getTopSpeedInKmh() + delimiter + getWeight() + delimiter + getLength() + delimiter + getWingspan() + delimiter + getContinents() + delimiter + getDiet() + delimiter + getSeasonalBehavior() + delimiter + getIndependentAge() + delimiter + getPopulationTrend() + delimiter + getIncubationPeriod();
   }
 }
