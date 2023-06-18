@@ -35,7 +35,9 @@
 
 /* ====== BirdOverview ====== */
 .table-view {
-    -fx-background-color: rgb(255, 252, 246);
+    -fx-background-color: rgb(255, 252, 246); 
+    -fx-min-height: 800px;
+    -fx-padding: 20px 0 0 0;
 }
 
 .table-view .column-header-background {
