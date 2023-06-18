@@ -17,11 +17,16 @@ public class MainView extends SplitPane implements ViewMixin {
     public void initializeControls() {
         birdOverview = new BirdOverview(model);
         birdProfile = new BirdProfile(model);
+
+        getStyleClass().add("main-view");
     }
 
     @Override
     public void layoutControls() {
         getItems().addAll(birdOverview, birdProfile);
+
+        birdOverview.setMinWidth(500);
+        birdProfile.setMinWidth(400);
     }
     
 }

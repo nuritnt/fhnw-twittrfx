@@ -16,6 +16,7 @@ public class AppStarter extends Application {
 		Parent rootPanel = new ApplicationUI(pm);
 
 		Scene scene = new Scene(rootPanel);
+		scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
 		primaryStage.getIcons().add(new Image("file:icon.png"));
 		primaryStage.titleProperty().bind(pm.applicationTitleProperty());

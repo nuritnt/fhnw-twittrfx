@@ -6,3 +6,23 @@
     -fx-font-size: 16px;
     -fx-background-color: rgb(255, 252, 246);
 }
+
+/* sett all backgrounds here */
+.split-pane {
+    -fx-background-color: rgb(255, 252, 246);
+}
+
+.split-pane {
+    -fx-background-color: rgb(255, 252, 246);
+    -fx-border-color: rgb(219, 201, 165);
+    -fx-border-width: 5px;
+    -fx-border-style: solid;
+    -fx-padding: 0;
+}
+
+.split-pane-divider {
+    -fx-background-color: rgb(219, 201, 165);
+    -fx-border-radius: 5px;
+    -fx-divider-width: 5px;
+
+}
