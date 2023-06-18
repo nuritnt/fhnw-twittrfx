@@ -24,12 +24,15 @@ public class BirdHeader extends BorderPane implements ViewMixin {
 
     @Override
     public void initializeControls() {
-        headerTitle = new Text("Birds of Switzerland");
+        headerTitle = new Text();
+        headerTitle.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.BIRDS_OF_SWITZERLAND.get(lang)));
 
-        amountOfBirdSpeciesLabel = new Text("Amount of bird species:");
+        amountOfBirdSpeciesLabel = new Text();
+        amountOfBirdSpeciesLabel.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.AMOUNT_OF_BIRDS.get(lang)));
         amountOfBirdSpeciesValue = new Text(model.amountOfBirdSpecies().toString());
 
-        highestTopSpeedLabel = new Text("Highest top speed:");
+        highestTopSpeedLabel = new Text();
+        highestTopSpeedLabel.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.HIGHEST_TOP_SPEED.get(lang)));
         highestTopSpeedValue = new Text(model.highestTopSpeed().toString() + " km/h");
 
         headerLabels = new VBox();
