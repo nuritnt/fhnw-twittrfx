@@ -1,5 +1,6 @@
 package twittrfx.views;
 
+import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -26,6 +27,7 @@ public class BirdHeader extends BorderPane implements ViewMixin {
     public void initializeControls() {
         headerTitle = new Text();
         headerTitle.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.BIRDS_OF_SWITZERLAND.get(lang)));
+        headerTitle.getStyleClass().add("header-title");
 
         amountOfBirdSpeciesLabel = new Text();
         amountOfBirdSpeciesLabel.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.AMOUNT_OF_BIRDS.get(lang)));
@@ -36,7 +38,15 @@ public class BirdHeader extends BorderPane implements ViewMixin {
         highestTopSpeedValue = new Text(model.highestTopSpeed().toString() + " km/h");
 
         headerLabels = new VBox();
+        headerLabels.getStyleClass().add("header-labels");
+
         headerValues = new VBox();
+        headerValues.getStyleClass().add("header-values");
+    }
+
+    @Override
+    public void initializeSelf() {
+        getStyleClass().add("bird-header");
     }
 
     @Override
@@ -47,6 +57,8 @@ public class BirdHeader extends BorderPane implements ViewMixin {
         setTop(headerTitle);
         setLeft(headerLabels);
         setCenter(headerValues);
+
+        BorderPane.setMargin(headerTitle, new Insets(10, 0, 10, 0));
     }
 }
 
