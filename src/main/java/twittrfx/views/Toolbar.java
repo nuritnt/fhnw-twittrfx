@@ -84,5 +84,8 @@ public class Toolbar extends HBox implements ViewMixin {
     public void setupBindings() {
         deleteBtn.disableProperty().bind(model.selectedBirdProperty().isNull());
         saveBtn.disableProperty().bind(model.selectedBirdProperty().isNull());
+
+        englishBtn.disableProperty().bind(model.languageProperty().isEqualTo(PresentationModel.Language.EN));
+        germanBtn.disableProperty().bind(model.languageProperty().isEqualTo(PresentationModel.Language.DE));
     }
 }
