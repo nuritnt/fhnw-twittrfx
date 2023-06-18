@@ -5,12 +5,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import twittrfx.PresentationModel.Language;
 
 public class AppStarter extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		PresentationModel pm = new PresentationModel();
+		PresentationModel pm = new PresentationModel(Language.EN);
 
 		Parent rootPanel = new ApplicationUI(pm);
 

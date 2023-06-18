@@ -11,13 +11,79 @@ import twittrfx.utils.FileHandler;
 
 public class PresentationModel {
 
-  private final StringProperty applicationTitle = new SimpleStringProperty("JavaFX App");
+  private final StringProperty applicationTitle = new SimpleStringProperty(Caption.APLLICATION_TITLE.get(Language.EN));
   private final StringProperty greeting = new SimpleStringProperty("Hello World!");
 
   public final static ObservableList<BirdPM> birds = FXCollections.observableArrayList();
   private ObjectProperty<BirdPM> selectedBird = new SimpleObjectProperty<>();
 
-  public PresentationModel() {
+  public enum Language {
+    DE("Deutsch"),
+    EN("English");
+
+    private final String language;
+
+    Language(String language) {
+      this.language = language;
+    }
+
+    public String getLanguage() {
+      return language;
+    }
+  }
+
+  public enum Caption {
+    APLLICATION_TITLE("TwittrFX", "TwittrFX"),
+    BIRDS_OF_SWITZERLAND("Birds of Switzerland", "Vögel der Schweiz"),
+    AMOUNT_OF_BIRDS("Amount of Birds", "Anzahl der Vögel"),
+    HIGHEST_TOP_SPEED("Highest Top Speed", "Höchste Spitzengeschwindigkeit"),
+    
+    NAME("Name", "Name"),
+    SHORT_DESCRIPTION("Short Description", "Kurzbeschreibung"),
+    POPULATION_SIZE("Population Size", "Bevölkerungsgrösse"),
+    TOP_SPEED("Top Speed", "Höchstgeschwindigkeit"),
+    MAXIMUM_AGE("Maximum Life Span", "Maximale Lebensdauer"),
+    LENGTH("Length", "Länge"),
+    WEIGHT("Weight", "Gewicht"),
+    WINGSPAN("Wingspan", "Spannweite"),
+    CONTINENTS("Continents", "Kontinente"),
+    INCUBATION_PERIOD("Incubation Period", "Brutzeit"),
+    DIET("Diet", "Diät"),
+    SEASONAL_BEHAVIOUR("Seasonal Behaviour", "Saisonales Verhalten"),
+    INDEPENDENT_AGE("Independent Age", "Selbstständiges Alter"),
+    POPULATION_TREND("Population Trend", "Populationstrend"),
+    POPULATION_STATUS("Population Status", "Bevölkerungsstatus"),
+    IMAGE("Image", "Bild");
+
+    private final String english;
+    private final String german;
+
+    Caption(String english, String german) {
+      this.english = english;
+      this.german = german;
+    }
+
+    public String getEnglish() {
+      return english;
+    }
+
+    public String getGerman() {
+      return german;
+    }
+
+    public String get(Language language) {
+      switch (language) {
+        case DE:
+          return getGerman();
+        case EN:
+          return getEnglish();
+        default:
+          return getEnglish();
+      }
+    }
+  }
+
+  public PresentationModel(Language language) {
     birds.addAll(new FileHandler().readFromFile());
   }
 
@@ -92,5 +158,23 @@ public class PresentationModel {
         e.printStackTrace();
         throw new IllegalStateException("save failed");
     }
+  }
+
+  private ObjectProperty<Language> currentLanguage = new SimpleObjectProperty<>(Language.EN); // Default to English
+
+  public ObjectProperty<Language> languageProperty() {
+    return currentLanguage;
+  }
+
+  public final Language getLanguage() {
+    return currentLanguage.get();
+  }
+
+  public void setLanguage(Language lang) {
+      this.currentLanguage.set(lang);
+  }
+
+  public String getCaption(Caption caption) {
+    return caption.get(currentLanguage.get());
   }
 }

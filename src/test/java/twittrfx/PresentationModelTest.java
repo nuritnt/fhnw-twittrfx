@@ -9,7 +9,7 @@ public class PresentationModelTest {
     @Test
     void testInitial() {
         // given
-        PresentationModel pm = new PresentationModel();
+        PresentationModel pm = new PresentationModel(null);
 
         // when
         String applicationTitle = pm.getApplicationTitle();
