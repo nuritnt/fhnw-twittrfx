@@ -7,8 +7,10 @@ import java.net.URL;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.StringProperty;
+import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -41,15 +43,25 @@ public class BirdBio extends HBox implements ViewMixin {
     }
 
     @Override
+    public void initializeSelf() {
+        getStyleClass().add("bird-bio");
+    }
+
+    @Override
     public void layoutControls() {
+        name.getStyleClass().add("bird-name");
         birdImg.setPreserveRatio(true);
         birdImg.setFitHeight(300);
-
-        bioText.getChildren().addAll(name, distribution);
-        birdImgBox.getChildren().add(birdImg);
-        setHgrow(bioText, Priority.ALWAYS);
-        setHgrow(birdImgBox, Priority.ALWAYS);
+        birdImg.getStyleClass().add("bird-image");
         
+        bioText.getChildren().addAll(name, distribution);
+        bioText.getStyleClass().add("bird-text");
+        BorderPane.setMargin(bioText, new Insets(10, 0, 10, 0));
+        
+        birdImgBox.getChildren().add(birdImg);
+        HBox.setHgrow(bioText, Priority.ALWAYS);
+        HBox.setHgrow(birdImg, Priority.ALWAYS);
+
         getChildren().addAll(bioText, birdImgBox);
     }
 
