@@ -17,6 +17,13 @@ public class BirdProfile extends VBox implements ViewMixin {
     public void initializeControls() {
         birdBio = new BirdBio(model);
         birdEditor = new BirdEditor(model);
+
+        birdBio.setMaxHeight(400);
+    }
+
+    @Override
+    public void initializeSelf() {
+        getStyleClass().add("bird-profile");
     }
 
     @Override
