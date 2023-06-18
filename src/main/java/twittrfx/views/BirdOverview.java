@@ -1,5 +1,6 @@
 package twittrfx.views;
 
+import javafx.beans.binding.Bindings;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,14 +20,28 @@ public class BirdOverview extends VBox implements ViewMixin {
 
     private TableView<BirdPM> initializeBirdTable() {
         TableView<BirdPM> birdTable = new TableView<>(model.getBirds());
-        TableColumn<BirdPM, String> nameCol = new TableColumn<>("Name");
+
+        TableColumn<BirdPM, String> nameCol = new TableColumn<>();
+        nameCol.textProperty().bind(
+            Bindings.createStringBinding(() -> model.getCaption(PresentationModel.Caption.NAME), 
+            model.languageProperty()
+        ));
         nameCol.setCellValueFactory(cell -> cell.getValue().nameProperty());
 
-        TableColumn<BirdPM, String> popTrend = new TableColumn<>("Population Trend");
+        TableColumn<BirdPM, String> popTrend = new TableColumn<>();
+        popTrend.textProperty().bind(
+            Bindings.createStringBinding(() -> model.getCaption(PresentationModel.Caption.POPULATION_TREND), 
+            model.languageProperty()
+        ));
         popTrend.setCellValueFactory(cell -> cell.getValue().populationTrendProperty());
 
-        TableColumn<BirdPM, String> popStatus = new TableColumn<>("Population Status");
+        TableColumn<BirdPM, String> popStatus = new TableColumn<>();
+        popStatus.textProperty().bind(
+            Bindings.createStringBinding(() -> model.getCaption(PresentationModel.Caption.POPULATION_STATUS), 
+            model.languageProperty()
+        ));
         popStatus.setCellValueFactory(cell -> cell.getValue().populationSizeProperty());
+
 
         birdTable.getColumns().add(nameCol);
         birdTable.getColumns().add(popTrend);
@@ -39,7 +54,6 @@ public class BirdOverview extends VBox implements ViewMixin {
     public void initializeControls() {
         birdHeader = new BirdHeader(model);
         birdTable = initializeBirdTable();
-
     }
 
     @Override
