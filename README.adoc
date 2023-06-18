@@ -9,9 +9,11 @@
 Folgende Zusatzfeatures mit der angegebenen Bewertung wurden umgesetzt:
 
 * Präsentation, +0.25
-* JavaFX application icon, ?
+* JavaFX application icon gändert, ?
 * Disabling delete/save/en/de button, ?
 * Mehrsprachigkeit, ?
+* Animation beim Aufstarten der App, ?
+* Basic Styling, ?
 
 === TwittrFX
 

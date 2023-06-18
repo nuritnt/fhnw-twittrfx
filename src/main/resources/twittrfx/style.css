@@ -2,4 +2,7 @@
     -fx-padding:     10;
     -fx-pref-height: 300;
     -fx-pref-width:  400;
+    -fx-font-family: 'Nunito';
+    -fx-font-size: 16px;
+    -fx-background-color: rgb(255, 252, 246);
 }
