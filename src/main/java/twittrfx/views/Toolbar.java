@@ -1,6 +1,5 @@
 package twittrfx.views;
 
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,7 +7,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import twittrfx.PresentationModel;
 import twittrfx.PresentationModel.Language;
-import twittrfx.models.BirdPM;
 
 public class Toolbar extends HBox implements ViewMixin {
     private Button saveBtn;
@@ -16,8 +14,6 @@ public class Toolbar extends HBox implements ViewMixin {
     private Button deleteBtn;
     private Button englishBtn;
     private Button germanBtn;
-    private HBox crudBox;
-    private HBox languageBox;
 
     private PresentationModel model;
 
