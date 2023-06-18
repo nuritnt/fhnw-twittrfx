@@ -49,7 +49,7 @@ public class PresentationModel {
     CONTINENTS("Continents", "Kontinente"),
     INCUBATION_PERIOD("Incubation Period", "Brutzeit"),
     DIET("Diet", "Diät"),
-    SEASONAL_BEHAVIOUR("Seasonal Behaviour", "Saisonales Verhalten"),
+    SEASONAL_BEHAVIOR("Seasonal Behavior", "Saisonales Verhalten"),
     INDEPENDENT_AGE("Independent Age", "Selbstständiges Alter"),
     POPULATION_TREND("Population Trend", "Populationstrend"),
     POPULATION_STATUS("Population Status", "Bevölkerungsstatus"),

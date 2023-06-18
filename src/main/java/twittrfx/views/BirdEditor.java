@@ -45,8 +45,8 @@ public class BirdEditor extends GridPane implements ViewMixin{
     private Label diet;
     private TextField dietField;
 
-    private Label seasonalBehaviour;
-    private TextField seasonalBehaviourField;
+    private Label seasonalBehavior;
+    private TextField seasonalBehaviorField;
 
     private Label independentAge;
     private TextField independentAgeField;
@@ -112,9 +112,9 @@ public class BirdEditor extends GridPane implements ViewMixin{
         diet.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.DIET.get(lang)));
         dietField = new TextField();
 
-        seasonalBehaviour = new Label("Seasonal Behaviour");
-        seasonalBehaviour.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.SEASONAL_BEHAVIOUR.get(lang)));
-        seasonalBehaviourField = new TextField();
+        seasonalBehavior = new Label("Seasonal Behavior");
+        seasonalBehavior.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.SEASONAL_BEHAVIOR.get(lang)));
+        seasonalBehaviorField = new TextField();
 
         independentAge = new Label("Independent Age");
         independentAge.textProperty().bind(model.languageProperty().map(lang -> PresentationModel.Caption.INDEPENDENT_AGE.get(lang)));
@@ -151,7 +151,7 @@ public class BirdEditor extends GridPane implements ViewMixin{
         addRow(8, continents, continentsField);
         addRow(9, incubationPeriod, incubationPeriodField);
         addRow(10, diet, dietField);
-        addRow(11, seasonalBehaviour, seasonalBehaviourField);
+        addRow(11, seasonalBehavior, seasonalBehaviorField);
         addRow(12, independentAge, independentAgeField);
         addRow(13, populationTrend, populationTrendField);
         addRow(14, populationStatus, populationStatusField);
@@ -185,7 +185,7 @@ public class BirdEditor extends GridPane implements ViewMixin{
         continentsField.textProperty().bindBidirectional(bird.continentsProperty());
         incubationPeriodField.textProperty().bindBidirectional(bird.incubationPeriodProperty());
         dietField.textProperty().bindBidirectional(bird.dietProperty());
-        seasonalBehaviourField.textProperty().bindBidirectional(bird.seasonalBehaviourProperty());
+        seasonalBehaviorField.textProperty().bindBidirectional(bird.seasonalBehaviorProperty());
         independentAgeField.textProperty().bindBidirectional(bird.independentAgeProperty());
         populationTrendField.textProperty().bindBidirectional(bird.populationTrendProperty());
         populationStatusField.textProperty().bindBidirectional(bird.populationSizeProperty());
@@ -204,7 +204,7 @@ public class BirdEditor extends GridPane implements ViewMixin{
         continentsField.textProperty().unbindBidirectional(bird.continentsProperty());
         incubationPeriodField.textProperty().unbindBidirectional(bird.incubationPeriodProperty());
         dietField.textProperty().unbindBidirectional(bird.dietProperty());
-        seasonalBehaviourField.textProperty().unbindBidirectional(bird.seasonalBehaviourProperty());
+        seasonalBehaviorField.textProperty().unbindBidirectional(bird.seasonalBehaviorProperty());
         independentAgeField.textProperty().unbindBidirectional(bird.independentAgeProperty());
         populationTrendField.textProperty().unbindBidirectional(bird.populationTrendProperty());
         populationStatusField.textProperty().unbindBidirectional(bird.populationSizeProperty());
@@ -235,7 +235,7 @@ public class BirdEditor extends GridPane implements ViewMixin{
         continentsField.textProperty().unbindBidirectional(bird.continentsProperty());
         incubationPeriodField.textProperty().unbindBidirectional(bird.incubationPeriodProperty());
         dietField.textProperty().unbindBidirectional(bird.dietProperty());
-        seasonalBehaviourField.textProperty().unbindBidirectional(bird.seasonalBehaviourProperty());
+        seasonalBehaviorField.textProperty().unbindBidirectional(bird.seasonalBehaviorProperty());
         independentAgeField.textProperty().unbindBidirectional(bird.independentAgeProperty());
         populationTrendField.textProperty().unbindBidirectional(bird.populationTrendProperty());
         populationStatusField.textProperty().unbindBidirectional(bird.populationSizeProperty());
