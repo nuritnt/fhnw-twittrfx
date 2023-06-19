@@ -56,7 +56,11 @@ public class PresentationModel {
     INDEPENDENT_AGE("Independent Age", "Selbstständiges Alter"),
     POPULATION_TREND("Population Trend", "Populationstrend"),
     POPULATION_STATUS("Population Status", "Bevölkerungsstatus"),
-    IMAGE("Image", "Bild");
+    IMAGE("Image", "Bild"),
+
+    DELETE_ALERT_TITLE("Delete Confirmation", "Löschen Bestätigung"),
+    DELETE_ALERT_TEXT("Delete Bird", "Vogel löschen"),
+    DELETE_ALERT_CONTENT("Are you sure you want to delete this bird?", "Sind Sie sicher, dass Sie diesen Vogel löschen möchten?");
 
     private final String english;
     private final String german;

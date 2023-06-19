@@ -14,6 +14,7 @@ Folgende Zusatzfeatures mit der angegebenen Bewertung wurden umgesetzt:
 * Mehrsprachigkeit, ?
 * Animation beim Aufstarten der App, ?
 * Basic Styling, ?
+* Confirmation Modal (übersetzt), ?
 
 Projekt fertig um 22:50 Uhr am 18.06.2023.
 
@@ -29,6 +30,10 @@ Implementieren Sie eine Applikation auf Basis JavaFX gemäss der Aufgabenbeschre
 * Mittwoch, 21.06.2023, 23:42 Uhr
 * Die Abgabe erfolgt durch einen "Push" auf den Master-Branch in Ihrem GitHub-Repository.
 * Das Projekt muss aus der IDE heraus startbar sein.
+
+=== Screenshots der implentierten Lösung
+
+
 
 === Bitte beachten Sie:
 
