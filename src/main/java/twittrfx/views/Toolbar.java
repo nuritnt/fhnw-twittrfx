@@ -80,9 +80,17 @@ public class Toolbar extends HBox implements ViewMixin {
 
     @Override
     public void setupEventHandlers() {
-        addBtn.setOnAction(event -> model.addBird());
-        saveBtn.setOnAction(event -> model.save());
+        addBtn.setOnAction(event -> {
+            model.playSound("addSound.mp3");
+            model.addBird();
+        });
+        saveBtn.setOnAction(event -> {
+            model.playSound("saveSound.mp3");
+            model.save();
+        });
         deleteBtn.setOnAction(event -> {
+            model.playSound("deleteSound.mp3");
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle(model.getCaption(PresentationModel.Caption.DELETE_ALERT_TITLE));
             alert.setHeaderText(model.getCaption(PresentationModel.Caption.DELETE_ALERT_TEXT));

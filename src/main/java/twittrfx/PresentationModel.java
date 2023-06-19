@@ -1,5 +1,7 @@
 package twittrfx;
 
+import java.net.URL;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -9,6 +11,8 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import twittrfx.models.BirdPM;
 import twittrfx.utils.FileHandler;
 
@@ -190,5 +194,17 @@ public class PresentationModel {
 
   public IntegerProperty topSpeedProperty() {
       return topSpeed;
+  }
+
+  public void playSound(String soundFileName) {
+      try {
+          URL resourceUrl = getClass().getResource("/twittrfx/" + soundFileName);
+          Media hit = new Media(resourceUrl.toString());
+          MediaPlayer mediaPlayer = new MediaPlayer(hit);
+          mediaPlayer.play();
+      } catch (Exception e) {
+          System.out.println("Failed to play sound because: " + e.getMessage());
+          e.printStackTrace();
+      }
   }
 }
