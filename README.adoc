@@ -15,6 +15,7 @@ Folgende Zusatzfeatures mit der angegebenen Bewertung wurden umgesetzt:
 * Animation beim Aufstarten der App, ?
 * Basic Styling, ?
 * Confirmation Modal (übersetzt), ?
+* Sound Effekte bei den Crud Buttons, ?
 
 Projekt fertig um 22:50 Uhr am 18.06.2023.
 
