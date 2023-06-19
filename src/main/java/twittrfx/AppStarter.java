@@ -20,7 +20,15 @@ public class AppStarter extends Application {
 		Scene scene = new Scene(rootPanel);
 		scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
-		Taskbar.getTaskbar().setIconImage(SwingFXUtils.fromFXImage(new Image(AppStarter.class.getResourceAsStream("icon.png")), null));
+		try {
+			Taskbar.getTaskbar().setIconImage(SwingFXUtils.fromFXImage(new Image(AppStarter.class.getResourceAsStream("icon.png")), null));
+		} catch (UnsupportedOperationException e) {
+			System.out.println("Changing taskbar icon not supported on this system.");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("An error occurred while setting taskbar icon.");
+			e.printStackTrace();
+		}
 
 		primaryStage.titleProperty().bind(pm.applicationTitleProperty());
 		primaryStage.setScene(scene);
