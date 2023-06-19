@@ -31,7 +31,8 @@
 }
 
 .toolbar .button:pressed {
-    -fx-fill: rgb(206, 158, 158);
+    -fx-background-color: rgb(206, 158, 158);
+
 }
 
 .toolbar .button:disabled {
