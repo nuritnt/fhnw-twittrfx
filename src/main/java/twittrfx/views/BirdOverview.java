@@ -28,7 +28,7 @@ public class BirdOverview extends VBox implements ViewMixin {
             model.languageProperty()
         ));
         nameCol.setCellValueFactory(cell -> cell.getValue().nameProperty());
-        nameCol.setMinWidth(300);
+        nameCol.setMinWidth(200);
 
         TableColumn<BirdPM, String> popTrend = new TableColumn<>();
         popTrend.textProperty().bind(
@@ -36,7 +36,7 @@ public class BirdOverview extends VBox implements ViewMixin {
             model.languageProperty()
         ));
         popTrend.setCellValueFactory(cell -> cell.getValue().populationTrendProperty());
-        nameCol.setMinWidth(200);
+        popTrend.setMinWidth(200);
 
         TableColumn<BirdPM, String> popStatus = new TableColumn<>();
         popStatus.textProperty().bind(
@@ -44,7 +44,7 @@ public class BirdOverview extends VBox implements ViewMixin {
             model.languageProperty()
         ));
         popStatus.setCellValueFactory(cell -> cell.getValue().populationSizeProperty());
-        nameCol.setMinWidth(200);
+        popStatus.setMinWidth(200);
 
         birdTable.getColumns().add(nameCol);
         birdTable.getColumns().add(popTrend);
