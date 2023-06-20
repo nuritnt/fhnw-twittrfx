@@ -34,10 +34,11 @@ public class ApplicationUI extends StackPane implements ViewMixin {
         toolbar = new Toolbar(model);
         mainView = new MainView(model);
         VBox.setVgrow(mainView, Priority.ALWAYS);
-
+        
         appContent = new VBox(toolbar, mainView);
         appContent.setVisible(false);// hide the main content initially
-
+        
+        model.playSound("startUpSound.mp3");
         loadingScreen = new StackPane();
         ImageView loadingGif = new ImageView(new Image(getClass().getResourceAsStream("loading.gif")));
         loadingGif.setFitWidth(800);
